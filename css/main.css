@@ -30,7 +30,7 @@ img {
 }
 
 a {
-    color:black !important;
+    color:white !important;
     font-size:2em;
     cursor:pointer;
 }
@@ -91,6 +91,23 @@ a:hover {
 .score p {
     display:inline;
     color:white;
+}
+
+#pages {
+    background-color: #242424;
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    justify-items: center;
+    width:40%;
+    height:50px;
+    margin:auto;
+}
+
+.page {
+    width:55px;
+    text-align:center;
+    border-radius:50%;
+    background:red;
 }
 
 
