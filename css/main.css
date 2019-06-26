@@ -3,13 +3,13 @@ ul {
     width:86%;
     padding:1em 0;
     display:grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-column-gap:5%;
 }
 
 li {
     width:250px;
-    height:780px;
+    height:720px;
     margin:auto;
     margin-bottom:1.5em;
     background-color:#382E78;
@@ -43,9 +43,37 @@ a:hover {
     background-color: #382E78 !important;
 }
 
+#hero {
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.jumbotron {
+    height:375px;
+    overflow:hidden;
+}
+
+.background-img {
+    display:inline;
+    opacity:0.2;
+    z-index: 1;
+    position:relative;
+}
+
+#popcorn {
+z-index:2;
+position:absolute;
+left:38%;
+}
+
+.now-p {
+    padding-left:2.5em !important;
+}
+
 .background {
     width:100%;
     background-color: #242424;
+    padding:1em;
 }
 
 .movie-container {
@@ -56,6 +84,10 @@ a:hover {
 
 .movie-img {
     grid-column: 1 / span 2;
+}
+
+.movie-img:hover :focus {
+    background-color:red;
 }
 
 .movie-title {
@@ -99,25 +131,68 @@ a:hover {
     grid-template-columns:repeat(5, 1fr);
     justify-items: center;
     width:40%;
-    height:50px;
     margin:auto;
+}
+
+#currentpg {
+    border:1px solid;
+    border-radius:50%;
+    background:red;
 }
 
 .page {
     width:55px;
     text-align:center;
-    border-radius:50%;
-    background:red;
+}
+
+#singleview-cont {
+    position:fixed;
+    display:none;
+    top:0;
+    left:0;
+    height:100vh;
+    width:100%;
+    background-color:#382E78;
+    z-index: 4;
+}
+
+.wrapper {
+    width:70%;
+}
+
+#movie-cont {
+    margin:auto;
+    display:block;
+    width:70%;
+}
+
+.poster-img {
+    display:inline-block;
+    width:30%
+}
+
+.poster-img img {
+    width:100%;
+}
+
+.details-bg {
+    display:inline-block;
+    background-color:#242424;
+    width:69%;
+    color:white;
+    padding:1em 3em;
+    vertical-align: middle;
 }
 
 
-@media only screen and (min-width:1300px) {
+@media only screen and (min-width:800px) {
 
 ul {
     grid-template-columns: repeat(3, 1fr);
 }
 li {
     width:300px;
+    height:800px;
 }
 
 h2 {
@@ -128,8 +203,34 @@ img {
     width:300px;
 }
 
-.movie-img{
-    height:450px;
 }
 
+#hero {
+    display:grid;
+    /* grid-template-columns: repeat(8, 1fr); */
+}
+
+.jumbotron {
+    height:375px;
+    overflow:hidden;
+}
+
+.background-img {
+    display:inline;
+    opacity:0.2;
+    z-index: 1;
+    position:relative;
+}
+
+#popcorn {
+z-index:2;
+position:absolute;
+left:38%;
+}
+
+.now-playing {
+    background-color:#382E78;
+    color:white;
+    width:100%;
+    height:56px;
 }
