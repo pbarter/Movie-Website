@@ -47,7 +47,7 @@ const printContent = () => {
         for (let i = 0; i < jsonData.results.length; i++) {
         contHtml.innerHTML+=
         `<li class="movie-container" id="getid">
-            <div class="movie-img"><img src="${imgLink}/${jsonData.results[i].poster_path}"  data-id="${jsonData.results[i].id}"></div>
+            <div class="movie-img"  onclick="posterimg()"><img src="${imgLink}/${jsonData.results[i].poster_path}"  data-id="${jsonData.results[i].id}"></div>
             <h2 class="movie-title">${jsonData.results[i].title}</h2>
             <div class="synopsis"><p><span class="font-weight-bold">Synopsis:</span> ${jsonData.results[i].overview.substring(0, 150) + `...`}</p></div>
             <div class="release"><p>${jsonData.results[i].release_date}</p></div>
@@ -125,7 +125,7 @@ const getSingleMovie = () => {
 contHtml.addEventListener("click", displaySingle)
 */
 
-contHtml.addEventListener("click", () => {
+posterimg = () => {
     console.log(event.target.dataset.id)
     let singleViewClick = document.getElementById(`singleview-cont`)
     let singleMovieId = event.target.dataset.id;
@@ -144,5 +144,5 @@ contHtml.addEventListener("click", () => {
             </div>`
         }
     });
-})
+}
 
