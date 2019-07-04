@@ -21,8 +21,16 @@ p {
     font-size:.8em;
 }
 
+h1 {
+    font-size:2em !important;
+}
+
 h2 {
     font-size:1.2em!important;
+}
+
+h3 {
+    font-size:1em !important;
 }
 
 img {
@@ -43,32 +51,52 @@ a:hover {
     background-color: #382E78 !important;
 }
 
-#hero {
-    display:grid;
-    grid-template-columns: repeat(5, 1fr);
-}
 
 .jumbotron {
-    height:375px;
+    max-height:375px;
     overflow:hidden;
+    position:relative;
 }
 
-.background-img {
-    display:inline;
-    opacity:0.2;
-    z-index: 1;
-    position:relative;
+.container {
+    max-width:100% !important;
 }
 
 #popcorn {
 z-index:2;
 position:absolute;
-left:38%;
+background-image: url("../img/popcorn.png");
+background-repeat:no-repeat;
+background-position: center 62px;
+background-size:250px;
+height:100%;
+width:100%;
+
 }
 
-.now-p {
-    padding-left:2.5em !important;
+.background-img {
+    z-index: 1;
+    width:100%;
 }
+
+.background-img img {
+    width:100%;
+    max-width:100% !important;
+}
+
+.now-playing {
+    background-color:#382E78;
+    color:white;
+    width:100%;
+    padding: .5em 0 .5em 0;
+}
+
+.now-p-title {
+    text-align: center;
+    padding:0 1em;
+}
+
+
 
 .background {
     width:100%;
@@ -113,15 +141,17 @@ left:38%;
 .score {
     background-color:#614BEF;
     border-radius:50%;
-    width:30%;
+    width:35%;
     height:45px;
     text-align:center;
-    margin:auto;
     font-size:1.5em;
+    justify-self: center;
+    align-self:center;
 }
 
 .score p {
     display:inline;
+    vertical-align:middle;
     color:white;
 }
 
@@ -130,7 +160,7 @@ left:38%;
     display:grid;
     grid-template-columns:repeat(5, 1fr);
     justify-items: center;
-    width:40%;
+    width:80%;
     margin:auto;
 }
 
@@ -141,7 +171,7 @@ left:38%;
 }
 
 .page {
-    width:55px;
+    width:100%;
     text-align:center;
 }
 
@@ -152,8 +182,9 @@ left:38%;
     left:0;
     height:100vh;
     width:100%;
-    background-color:#382E78;
+    background-color:rgba(56,46,120,0.95);
     z-index: 4;
+    overflow:scroll;
 }
 
 .wrapper {
@@ -163,29 +194,224 @@ left:38%;
 #movie-cont {
     margin:auto;
     display:block;
-    width:70%;
+    width:100%;
 }
+
+
+.closepage {
+    text-align:right;
+    cursor:pointer;
+    color:white;
+    font-weight:800;
+    font-size:2em;
+    grid-column:1 /span 2;
+    padding-right:.46em;
+}
+
+.closepage:hover {
+    color:red;
+}
+
+.details-bg {
+    display:grid;
+    background-color:#242424;
+    width:60%;
+    color:white;
+    grid-template-columns:1fr;
+    margin:auto;
+}
+
 
 .poster-img {
     display:inline-block;
-    width:30%
+    width:100%;
 }
 
 .poster-img img {
     width:100%;
 }
 
-.details-bg {
-    display:inline-block;
-    background-color:#242424;
-    width:69%;
-    color:white;
-    padding:1em 3em;
-    vertical-align: middle;
+.content {
+    display:grid;
+    grid-template-columns: 1fr;
 }
 
+.title-date-cont {
+    grid-column:1 / span 2;
+    background-color:#382E78;
+    margin:auto;
+    margin-bottom:1em;
+    width:80%;
 
-@media only screen and (min-width:800px) {
+}
+
+.title-date {
+    align-self: center;
+    /* height:80%; */
+    padding:0 1em 0 1em;
+}
+
+.title-date > .movie-title{
+    text-align:left;
+    padding:0;
+    margin-block-start: 1.1em;
+    margin-block-end: 0.40em;
+}
+
+.date {
+    grid-column:1 /span 2;
+}
+
+.overviewfull {
+    grid-column:1 /span 2;
+    padding-left:2em;
+    padding-right:2em;
+}
+
+.trailer {
+    font-size:1em;
+    cursor: pointer;
+    grid-column:1 /span 2;
+    margin-bottom:.5em;
+    padding-left:2em;
+}
+
+.trailer:hover{
+    color:red;
+}
+
+.ratingsingle{
+    padding-left:2em;
+    grid-column: 1/ span 2;
+
+}
+
+.ratingsingle p {
+    font-size:1.2em !important;
+}
+
+.review-button {
+    display:inline-block;
+    background-color:#242424;
+    color:white;
+    cursor: pointer;
+    padding-left:2em;
+    margin-bottom:1em;
+}
+
+.review-button a{
+    font-size:1em !important;
+    font-weight: 800;
+}
+
+.review-button:hover {
+    color:red;
+}
+
+#rev {
+    position:fixed;
+    top:0;
+    left:0;
+    background-color:#242424;
+    display:none;
+    width:100%;
+    height:100vh;
+    overflow: scroll;
+    padding: 0 1em 0 1em;
+}
+
+#rev h1 {
+    display:inline-block;
+    width:80%;
+}
+
+.rev-head {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    width:80%;
+    margin:auto;
+}
+
+.rev-head h1 {
+    color:white;
+}
+
+#rev h3 {
+    color:white;
+}
+
+.rev-head > .closepage {
+    grid-column:2 /span 1;
+}
+
+.review-contents {
+    background-color:#382E78;
+    padding: 1em 1em 1em 1em;
+    margin-bottom:1em;
+    width:80%;
+    margin:auto;
+}
+
+.review-cont {
+    cursor:pointer;
+}
+
+.review-cont:hover {
+    color:red;
+}
+
+.review-cont p {
+    color:white;
+}
+
+@media screen and (min-width:812px) {
+    ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #container {
+        width:70%;
+    }
+
+    .now-p-title {
+        text-align:left;
+        padding:0 1em;
+        display:grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap:5%;
+    }
+
+    .details-bg {
+        display:grid;
+        background-color:#242424;
+        width:100%;
+        color:white;
+        grid-template-columns:30% 70%;
+    }
+
+    .content {
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .ratingsingle {
+        grid-column: 1/ span 1;
+
+    }
+
+    .title-date-cont{
+        height:150px;
+        margin: 0 1em 1em 0;
+        width:auto;
+    }
+
+    .title-date {
+        padding-left:2em;
+    }
+
+}
+
+@media screen and (min-width:1250px) {
 
 ul {
     grid-template-columns: repeat(3, 1fr);
@@ -203,34 +429,43 @@ img {
     width:300px;
 }
 
-}
 
 #hero {
     display:grid;
     /* grid-template-columns: repeat(8, 1fr); */
 }
 
-.jumbotron {
-    height:375px;
-    overflow:hidden;
-}
 
 .background-img {
     display:inline;
-    opacity:0.2;
     z-index: 1;
     position:relative;
 }
 
-#popcorn {
-z-index:2;
-position:absolute;
-left:38%;
+.details-bg {
+    max-width:1440px;
 }
 
-.now-playing {
-    background-color:#382E78;
-    color:white;
-    width:100%;
-    height:56px;
+.score {
+    border-radius:50%;
+    width:30%;
+    height:45px;
+    font-size:1.5em;
+}
+
+#pages {
+    width:30%;
+}
+
+}
+
+@media screen and (min-width:1920px) {
+
+
+    ul {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+
+
 }
